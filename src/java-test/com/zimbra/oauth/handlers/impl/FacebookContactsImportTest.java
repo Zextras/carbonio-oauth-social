@@ -1,56 +1,8 @@
-/*
- /*
- * ***** BEGIN LICENSE BLOCK *****
- * Zimbra OAuth Social Extension
- * Copyright (C) 2018 Synacor, Inc.
- *
- * This program is free software: you can redistribute it and/or modify it under
- * the terms of the GNU General Public License as published by the Free Software Foundation,
- * version 2 of the License.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along with this program.
- * If not, see <https://www.gnu.org/licenses/>.
- * ***** END LICENSE BLOCK *****
- */
+// SPDX-FileCopyrightText: 2022 Synacor, Inc.
+// SPDX-FileCopyrightText: 2022 Zextras <https://www.zextras.com>
+//
+// SPDX-License-Identifier: GPL-2.0-only
 
-package com.zimbra.oauth.handlers.impl;
-
-import static org.easymock.EasyMock.anyObject;
-import static org.easymock.EasyMock.eq;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
-import static org.easymock.EasyMock.verify;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.easymock.EasyMock;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.easymock.PowerMock;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.zimbra.common.service.ServiceException;
-import com.zimbra.cs.account.DataSource;
-import com.zimbra.cs.mime.ParsedContact;
-import com.zimbra.oauth.handlers.impl.FacebookContactsImport.FacebookContactsUtil;
-import com.zimbra.oauth.handlers.impl.FacebookOAuth2Handler.FacebookContactConstants;
-import com.zimbra.oauth.utilities.Configuration;
-import com.zimbra.oauth.utilities.OAuth2JsonUtilities;
-
-/**
- * Test class for {@link FacebookContactsImport}.
- */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ DataSource.class, FacebookContactsImport.class, FacebookContactsUtil.class })
 public class FacebookContactsImportTest {

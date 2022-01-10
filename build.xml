@@ -34,11 +34,11 @@
   </target>
 
   <!-- builds the server extension jar -->
-  <target name="jar" depends="compile,zimbra-jar" description="Creates the jar file" />
+  <target name="jar" depends="compile,zextras-jar" description="Creates the jar file" />
 
   <target name="oauth-social-jar" depends="compile"
        description="Creates the zm-oauth-social.jar file which is used by for oauth functionality">
-     <antcall target="zimbra-jar">
+     <antcall target="zextras-jar">
        <param name="implementation.title" value="Zimbra Oauth Social Client Jar"/>
        <param name="jar.file" value="${oauth-social.jar.file}"/>
        <param name="includes"
@@ -52,7 +52,7 @@
 
   <target name="oauth-social-common-jar" depends="compile"
         description="Creates the zm-oauth-social-common.jar file which is used by other extensions">
-      <antcall target="zimbra-jar">
+      <antcall target="zextras-jar">
         <param name="implementation.title" value="Zimbra OAuth Social Common Jar"/>
         <param name="jar.file" value="${oauth-social-common.jar.file}"/>
         <param name="includes"
