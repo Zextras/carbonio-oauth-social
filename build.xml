@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project name="zm-oauth-social" default="jar" xmlns:ivy="antlib:org.apache.ivy.ant">
-  <import file="../zm-zcs/ant-global.xml" />
+  <import file="./build-common.xml" />
   <!-- Properties -->
   <property name="ext.name" value="${ant.project.name}" />
   <property name="zimbra.extension.class" value="com.zimbra.oauth.resources.OAuth2Extension" />
@@ -13,6 +13,21 @@
   <property name="extension.common.deploy.dir" location="${zimbra.home.dir}/lib/ext-common" />
   <property name="oauth-social-common.jar.file" value="zm-oauth-social-common.jar" />
   <property name="oauth-social.jar.file" value="zm-oauth-social.jar" />
+
+  <!-- Targets -->
+  <target name="publish-local-all" depends="init-ivy-cache">
+    <ant dir="./" target="publish-local" inheritAll="true" />
+    <echo>Publishing jar in local cache</echo>
+  </target>
+
+  <target name="publish-maven-all" depends="publish-local-all">
+    <ant dir="./" target="publish-maven" inheritAll="true" />
+    <echo>Publish artifacts on public maven</echo>
+  </target>
+
+  <target name="init-ivy-cache">
+    <mkdir dir="${user.home}/.ivy2/cache" />
+  </target>
 
   <target name="build-init">
     <mkdir dir="${build.classes.dir}" />
